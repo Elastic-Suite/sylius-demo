@@ -169,6 +169,9 @@
             "ref": "258300d52be6ad59b32a888d5ddafbf9638540ff"
         }
     },
+    "gally/sylius-plugin": {
+        "version": "dev-master"
+    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.36"
     },
