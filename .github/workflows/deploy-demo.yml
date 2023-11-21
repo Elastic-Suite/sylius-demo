@@ -1,0 +1,33 @@
+name: Deploy demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-demo:
+    name: Deploy demo
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Deploy in EC2
+        env:
+          BRANCH: ${{ format('origin/{0}', github.ref_name) }}
+          PRIVATE_KEY: ${{ secrets.AWS_DEPLOY_KEY }}
+          HOSTNAME : ${{ secrets.AWS_HOSTNAME }}
+          USER_NAME : ${{ secrets.AWS_USER }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
+            cd /home/ubuntu/ &&
+            [ -d sylius ] || git clone https://github.com/Elastic-Suite/sylius-demo.git sylius &&
+            cd /home/ubuntu/sylius &&
+            [ -d cert ] || cp -r ../certs ./ &&
+            docker system prune -af &&
+            ([[ $(docker volume ls -q | awk '!/_/' | tr '\n' ' ' | wc -l) -eq 0 ]] || docker volume rm $(docker volume ls -q | awk '!/_/' | tr '\n' ' ')) &&
+            docker compose down &&
+            git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
+            docker compose run --rm php chown www-data:www-data -R public/media &&
+            docker compose run --rm php bin/console doctrine:migrations:migrate &&
+            docker compose -f docker-compose.yml -f docker-compose.inte.yml up -d --build &&
+            docker compose exec php bin/console cache:clear            
+          "
