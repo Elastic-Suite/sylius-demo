@@ -20,6 +20,7 @@ RUN apk add --no-cache \
         file \
         gettext \
         unzip \
+        patch \
     ;
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
@@ -49,6 +50,7 @@ ENV APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
+COPY patches patches/
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
     composer clear-cache

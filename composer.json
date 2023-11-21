@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "cweagans/composer-patches": "^1.7",
         "gally/sylius-plugin": "dev-master",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12.11",
@@ -74,7 +75,8 @@
             "dealerdirect/phpcodesniffer-composer-installer": false,
             "phpstan/extension-installer": false,
             "symfony/thanks": false,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "cweagans/composer-patches": true
         }
     },
     "extra": {
@@ -88,6 +90,11 @@
                 "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
                 "flex://defaults"
             ]
+        },
+        "patches": {
+            "gally/sylius-plugin": {
+                "Remove final class": "patches/fix_gally_configuration.patch"
+            }
         }
     },
     "autoload": {
