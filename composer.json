@@ -26,7 +26,7 @@
     "require": {
         "php": "^8.0",
         "cweagans/composer-patches": "^1.7",
-        "gally/sylius-plugin": "dev-master",
+        "gally/sylius-plugin": "dev-feat-sync-optim",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12.11",
         "symfony/dotenv": "^5.4 || ^6.0",
@@ -34,6 +34,7 @@
         "symfony/runtime": "^5.4 || ^6.0"
     },
     "require-dev": {
+        "akawakaweb/sylius-fixtures-plugin": "^0.1.0",
         "behat/behat": "^3.7",
         "behat/mink-selenium2-driver": "^1.4",
         "dmore/behat-chrome-extension": "^1.3",

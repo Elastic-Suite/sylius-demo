@@ -33,3 +33,13 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+# config/services.yaml
+
+when@dev: &fixtures_dev
+    services:
+        sylius.fixtures_plugin.story.default_locales: '@App\Foundry\Story\DefaultLocalesStory'            
+        sylius.fixtures_plugin.story.random_dresses: '@App\Foundry\Story\RandomCatalogStory'
+        sylius.fixtures_plugin.story.random_caps: '@App\Foundry\Story\EmptyStory'
+        sylius.fixtures_plugin.story.random_jeans: '@App\Foundry\Story\EmptyStory'
+        sylius.fixtures_plugin.story.random_t_shirts: '@App\Foundry\Story\EmptyStory'

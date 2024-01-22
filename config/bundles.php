@@ -61,4 +61,7 @@ return [
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Gally\SyliusPlugin\GallySyliusPlugin::class => ['all' => true],
+    Zenstruck\Foundry\ZenstruckFoundryBundle::class => ['dev' => true, 'test' => true],
+    Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
+    Akawakaweb\SyliusFixturesPlugin\Symfony\SyliusFixturesPlugin::class => ['dev' => true, 'test' => true, 'test_cached' => true],
 ];
