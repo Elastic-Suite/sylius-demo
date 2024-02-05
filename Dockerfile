@@ -50,9 +50,8 @@ ENV APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
-COPY patches patches/
 RUN set -eux; \
-    composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
+    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
     composer clear-cache
 
 # copy only specifically what we need
@@ -143,7 +142,7 @@ ENV APP_ENV=dev
 COPY .env.test .env.test_cached ./
 
 RUN set -eux; \
-    composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
+    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
     composer clear-cache
 
 FROM sylius_php_prod AS sylius_cron

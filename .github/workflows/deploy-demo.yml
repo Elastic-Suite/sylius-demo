@@ -25,6 +25,7 @@ jobs:
             docker system prune -af &&
             ([[ $(docker volume ls -q | awk '!/_/' | tr '\n' ' ' | wc -l) -eq 0 ]] || docker volume rm $(docker volume ls -q | awk '!/_/' | tr '\n' ' ')) &&
             docker compose down &&
+            rm composer.lock -f &&
             git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
             docker compose run --rm php chown www-data:www-data -R public/media &&
             docker compose run --rm php bin/console doctrine:migrations:migrate &&
