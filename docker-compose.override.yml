@@ -1,4 +1,12 @@
 
+services:
+  php:
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - PHP_IDE_CONFIG=serverName=sylius.dev
+    #      - XDEBUG_MODE=debug
+
 networks:
   default:
     name: 'connectors-proxy'

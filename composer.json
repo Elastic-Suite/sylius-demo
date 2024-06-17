@@ -77,7 +77,8 @@
             "phpstan/extension-installer": false,
             "symfony/thanks": false,
             "symfony/runtime": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "php-http/discovery": true
         }
     },
     "extra": {
