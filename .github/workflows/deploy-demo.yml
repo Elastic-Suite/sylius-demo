@@ -27,7 +27,8 @@ jobs:
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml down &&
             git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
             mv .env.prod .env &&
-            docker compose -f docker-compose.yml -f docker-compose.inte.yml up -d --build &&
-              docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml exec php bin/console doctrine:migrations:migrate &&
-            docker compose -f docker-compose.yml -f docker-compose.inte.yml exec php bin/console cache:clear            
+            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml up -d --build php &&
+            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml exec php bin/console doctrine:migrations:migrate &&
+            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml exec php bin/console cache:clear &&
+            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml up -d
           "
