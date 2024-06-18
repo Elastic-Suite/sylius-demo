@@ -20,7 +20,6 @@ RUN apk add --no-cache \
         file \
         gettext \
         unzip \
-        patch \
     ;
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
@@ -28,7 +27,7 @@ COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/b
 # default PHP image extensions
 # ctype curl date dom fileinfo filter ftp hash iconv json libxml mbstring mysqlnd openssl pcre PDO pdo_sqlite Phar
 # posix readline Reflection session SimpleXML sodium SPL sqlite3 standard tokenizer xml xmlreader xmlwriter zlib
-RUN install-php-extensions xdebug-3.2.0 apcu exif gd intl pdo_mysql opcache zip
+RUN install-php-extensions apcu exif gd intl pdo_mysql opcache zip
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY docker/php/prod/php.ini        $PHP_INI_DIR/php.ini
@@ -51,7 +50,7 @@ ENV APP_ENV=prod
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
 RUN set -eux; \
-    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
+    composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
     composer clear-cache
 
 # copy only specifically what we need
@@ -126,10 +125,6 @@ WORKDIR /srv/sylius
 COPY --from=base        /srv/sylius/public public/
 COPY --from=sylius_node /srv/sylius/public public/
 
-FROM sylius_nginx as sylius_nginx_inte
-
-COPY docker/nginx/conf.d/default-inte.conf /etc/nginx/conf.d/default.conf
-
 FROM sylius_php_prod AS sylius_php_dev
 
 COPY docker/php/dev/php.ini        $PHP_INI_DIR/php.ini
@@ -142,7 +137,7 @@ ENV APP_ENV=dev
 COPY .env.test .env.test_cached ./
 
 RUN set -eux; \
-    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
+    composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
     composer clear-cache
 
 FROM sylius_php_prod AS sylius_cron

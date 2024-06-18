@@ -1,9 +1,0 @@
-services:
-  nginx:
-    build:
-      context: .
-      target: sylius_nginx_inte
-    volumes:
-      - ./certs:/root/ssl/
-    ports:
-      - "${HTTPS_PORT:-443}:443"

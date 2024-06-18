@@ -8,8 +8,6 @@ parameters:
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
-        logging: false
-        profiling: false
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
@@ -19,7 +17,7 @@ doctrine:
                 mappings:
                     App:
                         is_bundle: false
-                        type: annotation
+                        type: attribute
                         dir: '%kernel.project_dir%/src/Entity'
                         prefix: 'App\Entity'
                         alias: App
