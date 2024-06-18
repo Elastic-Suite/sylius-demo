@@ -1,0 +1,9 @@
+services:
+    ssl:
+        image: nginx:latest
+        ports:
+            - 443:443
+    nginx:
+        depends_on:
+            php:
+                condition: service_healthy

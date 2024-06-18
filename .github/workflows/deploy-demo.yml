@@ -24,11 +24,10 @@ jobs:
             [ -d cert ] || cp -r ../certs ./ &&
             docker system prune -af &&
             ([[ $(docker volume ls -q | awk '!/_/' | wc -l) -eq 0 ]] || docker volume rm $(docker volume ls -q | awk '!/_/' | tr '\n' ' ')) &&
-            docker compose -f docker-compose.yml -f docker-compose.inte.yml down &&
-            docker compose -f docker-compose.yml -f docker-compose.inte.yml run --rm php rm -rf vendor composer.lock &&
+            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml down &&
             git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
-            docker compose run -f docker-compose.yml -f docker-compose.inte.yml --rm php chown www-data:www-data -R public/media &&
-            docker compose run -f docker-compose.yml -f docker-compose.inte.yml --rm php bin/console doctrine:migrations:migrate &&
+            mv .env.prod .env &&
             docker compose -f docker-compose.yml -f docker-compose.inte.yml up -d --build &&
+              docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml exec php bin/console doctrine:migrations:migrate &&
             docker compose -f docker-compose.yml -f docker-compose.inte.yml exec php bin/console cache:clear            
           "
