@@ -7,8 +7,8 @@ services:
         healthcheck:
             test: '/usr/bin/mysql --execute "SHOW databases;"'
             timeout: 3s
-            interval: 1s
-            retries: 10
+            interval: 2s
+            retries: 20
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         cap_add:
