@@ -1,86 +1,62 @@
-<p align="center">
-    <a href="https://sylius.com" target="_blank">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://media.sylius.com/sylius-logo-800-dark.png">
-          <source media="(prefers-color-scheme: light)" srcset="https://media.sylius.com/sylius-logo-800.png">
-          <img alt="Sylius Logo." src="https://media.sylius.com/sylius-logo-800.png">
-        </picture>
-    </a>
-</p>
+# Demo sylius environment
 
-<h1 align="center">Sylius Standard Edition</h1>
+## How to use this environment
 
-<p align="center">This is Sylius Standard Edition repository for starting new projects.</p>
+* Clone sylius demo repo:
+    ```shell
+    git clone git@github.com:Elastic-Suite/oro-sylius.git connectors/sylius
+    cd connectors/sylius
+    ```
+* Edit .env file and update the value of :
 
-## About
+| Var                 | Description                           | Example value              |
+|---------------------|---------------------------------------|----------------------------|
+| `SYLIUS_DOMAIN`     | The oro domain you want to use        | sylius.connector.localhost |
+| `GALLY_SERVER_NAME` | The server name you defined for gally | gally.connector.local      |
+| `DOCKER_USER`       | Your user id and group id             | 1000:1000                  |
 
-Sylius is the first decoupled eCommerce framework based on [**Symfony**](http://symfony.com) and [**Doctrine**](http://doctrine-project.org). 
-The highest quality of code, strong testing culture, built-in Agile (BDD) workflow and exceptional flexibility make it the best solution for application tailored to your business requirements. 
-Enjoy being an eCommerce Developer again!
+* Install sylius
+    ```shell
+    docker compose up -d
+    docker compose exec php composer install
+    docker compose exec php bin/console sylius:install --no-interaction
+    docker compose exec php bin/console sylius:fixtures:load --no-interaction
+    docker compose up -d # force recompile static after install
+    ```
 
-Powerful REST API allows for easy integrations and creating unique customer experience on any device.
+* Add gally plugin
+    ```shell
+    git clone git@github.com:Elastic-Suite/gally-sylius-connector.git packages/GallyPlugin
+    docker compose exec php composer config repositories.gally-connector '{ "type": "path", "url": "./packages/GallyPlugin", "options": { "versions": { "gally/sylius-plugin": "2.0.0"}} }'
+    docker compose exec php composer require gally/sylius-plugin:2.0.0
+    ```
 
-We're using full-stack Behavior-Driven-Development, with [phpspec](http://phpspec.net) and [Behat](http://behat.org)
+* Start your traefik if it is not already running
 
-## Documentation
+  > After this step you should have a running oro instance
+  > * Backend: https://sylius.connector.localhost/admin (sylius/sylius)
+  > * Frontend: https://sylius.connector.localhost/
 
-Documentation is available at [docs.sylius.com](http://docs.sylius.com).
+* Open Sylius Admin, head to Configuration > Gally and configure the Gally endpoint (URL, credentials). Then you must enable Gally on each channel you need it.
 
-## Installation
+* Run this commands from your Sylius instance. This commands must be runned only once to synchronize the structure.
+    ```shell
+    bin/console gally:structure:sync   # Sync catalog et source field data with gally
+    ```
+* Run a full index from Sylius to Gally. This command can be run only once. Afterwards, the modified products are automatically synchronized.
+    ```shell
+    bin/console gally:index            # Index category and product entity to gally
+    ```
 
-### Traditional
-```bash
-$ wget http://getcomposer.org/composer.phar
-$ php composer.phar create-project sylius/sylius-standard project
-$ cd project
-$ yarn install
-$ yarn build
-$ php bin/console sylius:install
-$ symfony serve
-$ open http://localhost:8000/
+## How this env was build
+
+```shell
+git clone https://github.com/oroinc/docker-demo.git oro-demo
+git checkout v1.13.2
+rm -rf .git
+git init
+git remote add origin git@github.com:Elastic-Suite/oro-demo.git
 ```
 
-For more detailed instruction please visit [installation chapter in our docs](https://docs.sylius.com/en/latest/book/installation/installation.html).
-
-### Docker
-
-#### Development
-
-Make sure you have installed [Docker](https://docs.docker.com/get-docker/) on your local machine.
-Execute `make init` in your favorite terminal and wait some time until the services will be ready.
-Then enter `localhost` in your browser or execute `open localhost` in your terminal.
-
-
-## Troubleshooting
-
-If something goes wrong, errors & exceptions are logged at the application level:
-
-```bash
-$ tail -f var/log/prod.log
-$ tail -f var/log/dev.log
-```
-
-## Contributing
-
-Would like to help us and build the most developer-friendly eCommerce framework? Start from reading our [Contribution Guide](https://docs.sylius.com/en/latest/contributing/)!
-
-## Stay Updated
-
-If you want to keep up with the updates, [follow the official Sylius account on Twitter](http://twitter.com/Sylius) and [like us on Facebook](https://www.facebook.com/SyliusEcommerce/).
-
-## Bug Tracking
-
-If you want to report a bug or suggest an idea, please use [GitHub issues](https://github.com/Sylius/Sylius/issues).
-
-## Community Support
-
-Get Sylius support on [Slack](https://sylius.com/slack), [Forum](https://forum.sylius.com/) or [Stack Overflow](https://stackoverflow.com/questions/tagged/sylius).
-
-## MIT License
-
-Sylius is completely free and released under the [MIT License](https://github.com/Sylius/Sylius/blob/master/LICENSE).
-
-## Authors
-
-Sylius was originally created by [Paweł Jędrzejewski](http://pjedrzejewski.com).
-See the list of [contributors from our awesome community](https://github.com/Sylius/Sylius/contributors).
+And gally connector has been installed according to the doc:
+https://github.com/Elastic-Suite/gally-sylius-connector
