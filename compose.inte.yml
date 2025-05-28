@@ -1,6 +1,8 @@
 services:
     ssl:
         image: nginx:latest
+        depends_on:
+            - nginx
         ports:
             - 443:443
             - 80:80
