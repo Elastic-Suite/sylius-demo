@@ -61,6 +61,18 @@
             "ref": "1e012e04f573524ca83795cd19df9ea690adb604"
         }
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.75",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
+    },
     "friendsofsymfony/rest-bundle": {
         "version": "3.8",
         "recipe": {
@@ -72,6 +84,9 @@
         "files": [
             "config/packages/fos_rest.yaml"
         ]
+    },
+    "gally/sylius-plugin": {
+        "version": "dev-main"
     },
     "knplabs/knp-gaufrette-bundle": {
         "version": "v0.9.0"

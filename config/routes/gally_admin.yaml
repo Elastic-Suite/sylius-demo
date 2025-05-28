@@ -1,0 +1,3 @@
+gally_admin:
+    resource: "@GallySyliusPlugin/Resources/config/admin_routing.yml"
+    prefix: /admin

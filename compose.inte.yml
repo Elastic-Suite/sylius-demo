@@ -1,0 +1,15 @@
+services:
+    ssl:
+        image: nginx:latest
+        ports:
+            - 443:443
+            - 80:80
+        volumes:
+            - ./certs:/root/ssl/
+            - ./docker/nginx/conf/:/etc/nginx/conf.d/:ro
+
+    php:
+        extra_hosts: []
+
+    nginx:
+        extra_hosts: []
