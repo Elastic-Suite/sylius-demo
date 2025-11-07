@@ -29,11 +29,10 @@ jobs:
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml down &&
             git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
             git -C packages/GallyPlugin pull &&
+            git -C packages/GallyPlugin checkout ${{ env.BRANCH }} &&
             mv .env.prod .env &&
             cp compose.override.dist.yml compose.override.yml &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml up -d --build php &&
-            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml run --rm php composer config repositories.gally-connector '{ "type": "path", "url": "./packages/GallyPlugin", "options": { "versions": { "gally/sylius-plugin": "dev-main"}} }' &&
-            docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml run --rm php composer require --no-install --no-scripts gally/sylius-plugin:dev-main &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml run --rm php composer install --no-interaction --no-scripts &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml run --rm nodejs &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml exec php bin/console doctrine:migrations:migrate -n &&
