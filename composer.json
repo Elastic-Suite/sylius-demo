@@ -25,7 +25,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "gally/sylius-plugin": "dev-main",
+        "gally/sylius-plugin": "2.2.0",
         "sylius/grid-bundle": "v1.14.1",
         "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "~2.0.0",
@@ -148,7 +148,7 @@
             "url": "./packages/GallyPlugin",
             "options": {
                 "versions": {
-                    "gally/sylius-plugin": "dev-main"
+                    "gally/sylius-plugin": "2.2.0"
                 }
             }
         }

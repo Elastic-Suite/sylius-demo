@@ -4,14 +4,14 @@
 
 * Clone sylius demo repo:
     ```shell
-    git clone git@github.com:Elastic-Suite/oro-sylius.git connectors/sylius
+    git clone git@github.com:Elastic-Suite/demo-sylius.git connectors/sylius
     cd connectors/sylius
     ```
 * Edit .env file and update the value of :
 
 | Var                 | Description                           | Example value              |
 |---------------------|---------------------------------------|----------------------------|
-| `SYLIUS_DOMAIN`     | The oro domain you want to use        | sylius.connector.localhost |
+| `SYLIUS_DOMAIN`     | The sylius domain you want to use     | sylius.connector.localhost |
 | `GALLY_SERVER_NAME` | The server name you defined for gally | gally.connector.local      |
 | `DOCKER_USER`       | Your user id and group id             | 1000:1000                  |
 
@@ -29,7 +29,7 @@
 
 * Start your traefik if it is not already running
 
-  > After this step you should have a running oro instance
+  > After this step you should have a running sylius instance
   > * Backend: https://sylius.connector.localhost/admin (sylius/sylius)
   > * Frontend: https://sylius.connector.localhost/
 
@@ -43,16 +43,6 @@
     ```shell
     bin/console gally:index            # Index category and product entity to gally
     ```
-
-## How this env was build
-
-```shell
-git clone https://github.com/oroinc/docker-demo.git oro-demo
-git checkout v1.13.2
-rm -rf .git
-git init
-git remote add origin git@github.com:Elastic-Suite/oro-demo.git
-```
 
 And gally connector has been installed according to the doc:
 https://github.com/Elastic-Suite/gally-sylius-connector
