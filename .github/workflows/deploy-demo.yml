@@ -28,7 +28,8 @@ jobs:
             cp compose.override.dist.yml compose.override.yml &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml down &&
             git fetch --all && git reset --hard && git checkout ${{ env.BRANCH }} &&
-            git -C packages/GallyPlugin pull &&
+            git -C packages/GallyPlugin fetch --all &&
+            git -C packages/GallyPlugin reset --hard &&
             git -C packages/GallyPlugin checkout ${{ env.BRANCH }} &&
             mv .env.prod .env &&
             cp compose.override.dist.yml compose.override.yml &&
