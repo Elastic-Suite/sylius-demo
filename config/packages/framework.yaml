@@ -10,6 +10,8 @@ framework:
     serializer:
         mapping:
             paths: [ '%kernel.project_dir%/config/serialization' ]
+    annotations:
+        enabled: false
 
 when@dev:
     framework:

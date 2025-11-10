@@ -63,4 +63,4 @@ phpstan.neon
 /public/media/cache/
 ###< liip/imagine-bundle ###
 
-packages/*
+packages/**

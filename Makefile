@@ -1,11 +1,18 @@
 .PHONY: run
 
 DOCKER_COMPOSE ?= docker compose
-DOCKER_USER ?= "$(shell id -u):$(shell id -g)"
+# Avoid using root (0:0) as DOCKER_USER, especially in WSL2 environments
+# If id -u returns 0, fall back to 1000:1000 to prevent fixuid/PHP-FPM issues
+DOCKER_USER ?= $(shell if [ "$$(id -u)" = "0" ]; then echo "1000:1000"; else echo "$$(id -u):$$(id -g)"; fi)
 ENV ?= "dev"
 
 init:
 	@make -s docker-compose-check
+	@if [ "$$(id -u)" = "0" ]; then \
+		echo "Running as root (WSL2/Linux) - preparing permissions for Docker containers..."; \
+		chmod -R 777 var/ public/ 2>/dev/null || true; \
+		chown -R 1000:1000 vendor/ node_modules/ 2>/dev/null || true; \
+	fi
 	@if [ ! -e compose.override.yml ]; then \
 		cp compose.override.dist.yml compose.override.yml; \
 	fi
