@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9a7d1fa650f2889a09243ab6ff0e5f4",
+    "content-hash": "c7c94a8b9001718f22ed47b5c547ef34",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -3253,16 +3253,16 @@
         },
         {
             "name": "gally/gally-php-sdk",
-            "version": "v2.2.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Elastic-Suite/gally-php-sdk.git",
-                "reference": "d6cd3037c9c0979303bf9026e3d8051b7150f85f"
+                "reference": "9483c9cc863ebe849c0891052f8da741e1d559ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Elastic-Suite/gally-php-sdk/zipball/d6cd3037c9c0979303bf9026e3d8051b7150f85f",
-                "reference": "d6cd3037c9c0979303bf9026e3d8051b7150f85f",
+                "url": "https://api.github.com/repos/Elastic-Suite/gally-php-sdk/zipball/9483c9cc863ebe849c0891052f8da741e1d559ec",
+                "reference": "9483c9cc863ebe849c0891052f8da741e1d559ec",
                 "shasum": ""
             },
             "require": {
@@ -3273,6 +3273,7 @@
                 "friendsofphp/php-cs-fixer": "^3.64",
                 "phpstan/phpstan": "^1.12"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3287,9 +3288,9 @@
             "homepage": "https://meetgally.com",
             "support": {
                 "issues": "https://github.com/Elastic-Suite/gally-php-sdk/issues",
-                "source": "https://github.com/Elastic-Suite/gally-php-sdk/tree/v2.2.0"
+                "source": "https://github.com/Elastic-Suite/gally-php-sdk/tree/main"
             },
-            "time": "2025-07-24T08:38:08+00:00"
+            "time": "2026-06-03T13:50:53+00:00"
         },
         {
             "name": "gally/sylius-plugin",
@@ -3297,10 +3298,10 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/GallyPlugin",
-                "reference": "c7287dc5169671146d7c3e0e36c214c208896cbf"
+                "reference": "a033b0a122e0c77427b644413f0e9e79fa888548"
             },
             "require": {
-                "gally/gally-php-sdk": "2.2.0",
+                "gally/gally-php-sdk": "dev-main",
                 "php": "^8.0",
                 "sylius/grid-bundle": "^1.14.1",
                 "sylius/sylius": "^2.0"
@@ -3324,10 +3325,10 @@
                 "friendsofphp/php-cs-fixer": "~3.56.0",
                 "phpspec/phpspec": "^7.2",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.8.1",
-                "phpstan/phpstan-doctrine": "1.3.37",
-                "phpstan/phpstan-strict-rules": "^1.3.0",
-                "phpstan/phpstan-webmozart-assert": "^1.2.0",
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-doctrine": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-webmozart-assert": "^2.0",
                 "phpunit/phpunit": "^9.5",
                 "polishsymfonycommunity/symfony-mocker-container": "^1.0",
                 "sylius-labs/coding-standard": "^4.2",
@@ -20718,12 +20719,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "gally/gally-php-sdk": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

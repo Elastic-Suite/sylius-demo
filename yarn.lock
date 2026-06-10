@@ -815,6 +815,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@elastic-suite/gally-sdk@2.2.2-alpha.0":
+  version "2.2.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@elastic-suite/gally-sdk/-/gally-sdk-2.2.2-alpha.0.tgz#98db1576bf4ac4fc6af9abfd2e7c28817f7c3b46"
+  integrity sha512-sJA60XEEu0s8ItTThXu0IWRYpTC6BlK5w1zYJAgB9NOQgQTfLxOp+wOoZ9TeinTxPKh4lkhTKKRvfaPngqCa4g==
+
 "@floating-ui/core@^1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.7.2.tgz#3d1c35263950b314b6d5a72c8bfb9e3c1551aefd"
@@ -875,6 +880,10 @@
   integrity sha512-ePEgLgVCqi2BBFnTMWPfIghu6FkbZnnBVhO2sSxvLfrdFw7wCHAHiDoM2h4NRgjbaY7+B7HgOLZGkK187pZTZg==
   dependencies:
     tslib "^2.8.0"
+
+"@gally/sylius-plugin@link:vendor/gally/sylius-plugin":
+  version "0.0.0"
+  uid ""
 
 "@hotwired/stimulus-webpack-helpers@^1.0.1":
   version "1.0.1"
@@ -979,7 +988,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/admin-bundle" "file:../../home/node/.cache/yarn/v6/npm-@sylius-ui-admin-2.0.0-1ac4148f-654e-45c7-b914-f77a1e770bff-1762767275152/node_modules/@sylius-ui/admin/Resources/assets"
+    "@sylius/admin-bundle" "file:../../tmp/.yarn-cache-11822/v6/npm-@sylius-ui-admin-2.0.0-8c21c6b0-955c-4574-ab1a-bade28b75473-1781031768369/node_modules/@sylius-ui/admin/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     "@tabler/core" "~1.3.0"
@@ -1003,7 +1012,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/shop-bundle" "file:../../home/node/.cache/yarn/v6/npm-@sylius-ui-shop-2.0.0-f52f5777-5245-4a93-8b55-522a75ffc8b6-1762767275339/node_modules/@sylius-ui/shop/Resources/assets"
+    "@sylius/shop-bundle" "file:../../tmp/.yarn-cache-11822/v6/npm-@sylius-ui-shop-2.0.0-f1473583-da6a-41d1-8c72-8eb21ea848db-1781031768495/node_modules/@sylius-ui/shop/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     bootstrap "^5.3.3"
@@ -1961,7 +1970,7 @@ fastest-levenshtein@^1.0.12, fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-file-loader@^6.0.0:
+file-loader@^6.0.0, file-loader@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
   integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==

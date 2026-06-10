@@ -25,7 +25,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "gally/gally-php-sdk": "2.2.0",
+        "gally/gally-php-sdk": "dev-main",
         "gally/sylius-plugin": "2.2.0",
         "sylius/mollie-plugin": "^3.0",
         "sylius/paypal-plugin": "^2.0",
