@@ -44,6 +44,12 @@ Encore
       'shop',
       [common_controllers, path.resolve(__dirname, './assets/shop/controllers.json')]
     ))
+    .addEntry('gally-shop-entry', './vendor/gally/sylius-plugin/src/Resources/assets/shop/entrypoint.js')
+    .copyFiles({
+        from: './node_modules/@elastic-suite/gally-sdk/dist/browser/iife',
+        to: 'gally/[name].[ext]',
+        pattern: /gally-sdk\.global\.js/,
+    })
 ;
 
 const appShopConfig = Encore.getWebpackConfig();

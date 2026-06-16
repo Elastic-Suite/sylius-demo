@@ -12,6 +12,8 @@
     "@sylius/shop-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/assets",
     "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
     "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
+    "@gally/sylius-plugin": "link:vendor/gally/sylius-plugin",
+    "@elastic-suite/gally-sdk": "2.2.2-alpha.0",
     "bazinga-translator": "^7.0.0",
     "intl-messageformat": "^10.7.16",
     "lodash.get": "^4.4.2",

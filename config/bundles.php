@@ -65,4 +65,5 @@ return [
     Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle::class => ['all' => true],
     Sylius\MolliePlugin\SyliusMolliePlugin::class => ['all' => true],
     FluxSE\SyliusStripePlugin\FluxSESyliusStripePlugin::class => ['all' => true],
+    Gally\SyliusPlugin\GallySyliusPlugin::class => ['all' => true],
 ];
