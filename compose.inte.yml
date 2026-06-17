@@ -12,6 +12,8 @@ services:
 
     php:
         extra_hosts: []
+        environment:
+            TRUSTED_PROXIES: "127.0.0.1,REMOTE_ADDR"
 
     nginx:
         extra_hosts: []

@@ -1,6 +1,8 @@
 framework:
     translator: { fallbacks: ["%locale%"] }
     secret: '%env(APP_SECRET)%'
+    trusted_proxies: '%env(default::TRUSTED_PROXIES)%'
+    trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-prefix']
     form:
         enabled: true
     http_method_override: true
