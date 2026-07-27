@@ -19,6 +19,7 @@ services:
             SYLIUS_MESSENGER_TRANSPORT_PAYMENT_REQUEST_DSN: sync://
             SYLIUS_MESSENGER_TRANSPORT_PAYMENT_REQUEST_FAILED_DSN: sync://
             DEFAULT_URI: ${SYLIUS_DOMAIN:-sylius21.connector.localhost}
+            TRUSTED_PROXIES: "127.0.0.1,REMOTE_ADDR"
             PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
             XDEBUG_MODE: debug
             XDEBUG_CONFIG: >-

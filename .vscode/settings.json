@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+        "vendor/gally": true
+    },
+    "search.exclude": {
+        "vendor/gally": true,
+    },
+    "files.watcherExclude": {
+        "vendor/gally/": true
+    }
+}

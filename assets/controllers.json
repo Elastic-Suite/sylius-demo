@@ -19,6 +19,23 @@
                     "@symfony/ux-live-component/dist/live.min.css": true
                 }
             }
+        },
+        "@gally/sylius-plugin": {
+            "range-slider": {
+                "main": "src/Resources/assets/shop/controllers/RangeSliderController.js",
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "search-autocomplete": {
+                "main": "src/Resources/assets/shop/controllers/SearchAutocompleteController.js",
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "filters-autosubmit": {
+                "main": "src/Resources/assets/shop/controllers/FiltersAutosubmitController.js",
+                "enabled": true,
+                "fetch": "eager"
+            }
         }
     },
     "entrypoints": []
