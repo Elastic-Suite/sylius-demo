@@ -899,10 +899,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@elastic-suite/gally-sdk@2.2.2-alpha.0":
-  version "2.2.2-alpha.0"
-  resolved "https://registry.yarnpkg.com/@elastic-suite/gally-sdk/-/gally-sdk-2.2.2-alpha.0.tgz#98db1576bf4ac4fc6af9abfd2e7c28817f7c3b46"
-  integrity sha512-sJA60XEEu0s8ItTThXu0IWRYpTC6BlK5w1zYJAgB9NOQgQTfLxOp+wOoZ9TeinTxPKh4lkhTKKRvfaPngqCa4g==
+"@elastic-suite/gally-sdk@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@elastic-suite/gally-sdk/-/gally-sdk-2.3.0.tgz#93ac949849858e3ec4428bf357c5bf4b22018f62"
+  integrity sha512-PQ8+dsswRmWJOhODyNttQ9zy0UAm//mQvpMx4KFbpR4f7STV7dK1U+96xlZKaYF830P8VK81/KYQpTxNXJrCow==
 
 "@floating-ui/core@^1.7.2":
   version "1.7.2"
@@ -1072,7 +1072,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/admin-bundle" "file:../../tmp/.yarn-cache-11822/v6/npm-@sylius-ui-admin-2.0.0-f008a5d6-986e-4608-b5e7-6b2987d35681-1781627963977/node_modules/@sylius-ui/admin/Resources/assets"
+    "@sylius/admin-bundle" "file:../../home/node/.cache/yarn/v6/npm-@sylius-ui-admin-2.0.0-67ff4a8c-7dbd-4b95-abca-967e4c404370-1787236666638/node_modules/@sylius-ui/admin/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     "@tabler/core" "~1.3.0"
@@ -1096,7 +1096,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/shop-bundle" "file:../../tmp/.yarn-cache-11822/v6/npm-@sylius-ui-shop-2.0.0-8284239f-7f3c-4b62-84c6-d62d4cc30d64-1781627964068/node_modules/@sylius-ui/shop/Resources/assets"
+    "@sylius/shop-bundle" "file:../../home/node/.cache/yarn/v6/npm-@sylius-ui-shop-2.0.0-f4d6d6b7-9c85-404f-85c4-ad2289438aff-1787236666760/node_modules/@sylius-ui/shop/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     bootstrap "^5.3.3"
