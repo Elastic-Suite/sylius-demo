@@ -22,6 +22,7 @@ jobs:
             [ -d sylius ] || git clone https://github.com/Elastic-Suite/sylius-demo.git sylius &&
             cd /home/ubuntu/sylius &&
             ([ -d packages/GallyPlugin ] || git clone https://github.com/Elastic-Suite/gally-sylius-connector.git packages/GallyPlugin) &&
+            ([ -d packages/GallySdk ] || git clone https://github.com/Elastic-Suite/gally-php-sdk.git packages/GallySdk) &&
             [ -d cert ] || cp -r ../certs ./ &&
             docker system prune -af &&
             ([[ $(docker volume ls -q | awk '!/_/' | wc -l) -eq 0 ]] || docker volume rm $(docker volume ls -q | awk '!/_/' | tr '\n' ' ')) &&
@@ -31,6 +32,9 @@ jobs:
             git -C packages/GallyPlugin fetch --all &&
             git -C packages/GallyPlugin reset --hard &&
             git -C packages/GallyPlugin checkout ${{ env.BRANCH }} &&
+            git -C packages/GallySdk fetch --all &&
+            git -C packages/GallySdk reset --hard &&
+            git -C packages/GallySdk checkout ${{ env.BRANCH }} &&
             mv .env.prod .env &&
             cp compose.override.dist.yml compose.override.yml &&
             docker compose -f compose.yml -f compose.override.yml -f compose.inte.yml up -d --build php &&
