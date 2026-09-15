@@ -159,5 +159,14 @@
                 "gally/sylius-plugin": "dev-main"
             }
         }
+    }, {
+        "name": "gally-sdk",
+        "type": "path",
+        "url": "./packages/GallySdk",
+        "options": {
+            "versions": {
+                "gally/gally-php-sdk": "dev-main"
+            }
+        }
     }]
 }

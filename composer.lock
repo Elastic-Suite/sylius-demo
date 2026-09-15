@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "459f42058e0255684e19d970c642ed23",
+    "content-hash": "e88eac5681d11e267f2d90b088de8774",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -3362,16 +3362,10 @@
         {
             "name": "gally/gally-php-sdk",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Elastic-Suite/gally-php-sdk.git",
-                "reference": "8081c4a343e077dcf6eb5ea1f66ae92b77517c05"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Elastic-Suite/gally-php-sdk/zipball/8081c4a343e077dcf6eb5ea1f66ae92b77517c05",
-                "reference": "8081c4a343e077dcf6eb5ea1f66ae92b77517c05",
-                "shasum": ""
+                "type": "path",
+                "url": "./packages/GallySdk",
+                "reference": "f71d7a6fde5872bb3c0fd1cd2bd025ac12b57b71"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2 || ^7.2",
@@ -3381,24 +3375,20 @@
                 "friendsofphp/php-cs-fixer": "^3.64",
                 "phpstan/phpstan": "^1.12"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Gally\\Sdk\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "OSL-3.0"
             ],
             "description": "PHP Sdk for Gally connectors",
             "homepage": "https://meetgally.com",
-            "support": {
-                "issues": "https://github.com/Elastic-Suite/gally-php-sdk/issues",
-                "source": "https://github.com/Elastic-Suite/gally-php-sdk/tree/main"
-            },
-            "time": "2026-06-15T14:01:15+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "gally/sylius-plugin",
@@ -21117,5 +21107,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
